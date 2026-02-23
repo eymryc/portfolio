@@ -17,8 +17,8 @@ const PROJECTS = [
   },
   {
     title: "Jumphost Sécurisé",
-    desc: "Infrastructure Jumphost sécurisée avec Guacamole, SSO via Keycloak/OpenID Connect, reverse proxy Nginx et certificats SSL/TLS automatisés via Certbot.",
-    tags: ["Docker", "Keycloak", "Nginx", "Certbot", "OpenID Connect"],
+    desc: "Remote desktop avec Apache Guacamole, reverse proxy Nginx (Let's Encrypt), stack dockerisée et SSO pour accès unifié aux serveurs.",
+    tags: ["Apache Guacamole", "Nginx", "Let's Encrypt", "Docker", "SSO"],
     category: "DevOps",
     icon: "🔐",
     color: "#EF4444",
@@ -174,9 +174,20 @@ interface Project {
   color: string;
 }
 
+function getProjectSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "")
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const [hovered, setHovered] = useState(false);
-  const slug = project.title.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+  const slug = getProjectSlug(project.title);
   
   return (
     <Link href={`/projects/${slug}`} className="h-full block">

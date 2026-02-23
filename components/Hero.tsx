@@ -103,10 +103,11 @@ export default function Hero() {
               <div className="flex flex-wrap gap-8 mt-16 pt-8" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
                 {[
                   { n: "5+", label: "Ans d'expérience" },
-                  { n: "12+", label: "Projets livrés" },
-                  { n: "60%", label: "Réduction délais DIGIFOR" },
-                  { n: "2", label: "Postes en parallèle" },
-                ].map((s) => (
+                  { n: "25+", label: "Projets livrés" },
+                  // { n: "10+", label: "Architectures conçues" },
+                  { n: "15+", label: "Intégrations API" },
+                  { n: "∞", label: "Passion & amélioration continue" },
+                 ].map((s) => (
                   <div key={s.label} className="group">
                     <div className="text-3xl font-bold gradient-text group-hover:scale-110 transition-transform duration-300">{s.n}</div>
                     <div className="text-slate-500 text-sm mt-1">{s.label}</div>
