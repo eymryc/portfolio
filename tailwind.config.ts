@@ -9,8 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        amber: {
-          400: "#F59E0B",
+        accent: {
+          DEFAULT: "var(--color-accent)",
+          light: "var(--color-accent-light)",
+          muted: "var(--color-warm-muted)",
         },
       },
       fontFamily: {

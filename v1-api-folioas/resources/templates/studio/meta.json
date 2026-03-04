@@ -1,0 +1,9 @@
+{
+    "id": "studio",
+    "name": "Studio",
+    "version": "1.0",
+    "description": "Template Studio pour portfolio.",
+    "thumbnail": null,
+    "designed": false,
+    "multiPage": false
+}

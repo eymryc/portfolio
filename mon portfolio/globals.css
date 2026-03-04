@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #080C14;
+  --color-amber: #F59E0B;
+  --color-red: #EF4444;
+  --color-violet: #8B5CF6;
+  --font-sans: var(--font-rajdhani), 'Segoe UI', system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), 'Courier New', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: white;
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.light {
+  --color-bg: #ffffff;
+}
+
+html.light body {
+  background-color: #ffffff;
+  color: #1e293b;
+}
+
+html.dark {
+  --color-bg: #080C14;
+}
+
+html.dark body {
+  background-color: #080C14;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #F59E0B88;
+  border-radius: 2px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #F59E0B, #EF4444, #8B5CF6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%       { opacity: 0.7; transform: scale(1.05); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.fade-up {
+  animation: fadeUp 0.7s ease forwards;
+  opacity: 0;
+}
+
+.pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.gradient-animate {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(245,158,11,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,158,11,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}

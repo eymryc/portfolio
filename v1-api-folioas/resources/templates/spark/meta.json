@@ -1,0 +1,9 @@
+{
+    "id": "spark",
+    "name": "Spark",
+    "version": "1.0",
+    "description": "Template Spark pour portfolio.",
+    "thumbnail": null,
+    "designed": false,
+    "multiPage": false
+}

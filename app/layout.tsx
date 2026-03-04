@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { Rajdhani, Space_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
+import { AuthProvider } from "@/contexts/AuthContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import { ToastProvider } from "@/components/ui/Toast";
 
 const rajdhani = Rajdhani({
   subsets: ["latin"],
   variable: "--font-rajdhani",
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 const spaceMono = Space_Mono({
@@ -16,34 +19,33 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Romaric Ouangni – Ingénieur Logiciel Full Stack",
+  title: "Portfolio as a Service – Créez votre portfolio professionnel sans coder",
   description:
-    "Portfolio de Romaric Ouangni, Ingénieur Logiciel Full Stack spécialisé Spring Boot, Laravel, React, DevOps – Abidjan, Côte d'Ivoire.",
-  keywords: ["Romaric Ouangni", "Ingénieur Logiciel", "Full Stack", "Spring Boot", "Laravel", "React", "Next.js", "Abidjan", "Développeur", "DevOps"],
-  authors: [{ name: "Romaric Ouangni" }],
-  creator: "Romaric Ouangni",
-  publisher: "Romaric Ouangni",
-  metadataBase: new URL("https://romaric-ouangni.vercel.app"),
+    "Créez et publiez votre portfolio web en quelques minutes. Templates modernes, profil, projets, témoignages et contact. Pour développeurs, designers, créatifs et tous les profils.",
+  keywords: [
+    "portfolio",
+    "portfolio en ligne",
+    "créer un portfolio",
+    "portfolio professionnel",
+    "CV en ligne",
+    "développeur",
+    "designer",
+    "créatif",
+  ],
+  authors: [{ name: "Portfolio as a Service" }],
+  creator: "Portfolio as a Service",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "https://romaric-ouangni.vercel.app"),
   openGraph: {
-    title: "Romaric Ouangni – Ingénieur Logiciel Full Stack",
-    description: "5 ans d'expérience · Spring Boot · Laravel · React · DevOps · Abidjan CI",
+    title: "Portfolio as a Service – Votre portfolio web en quelques minutes",
+    description: "Inscription, choix du template, personnalisation : publiez un site qui vous représente. Sans coder.",
     type: "website",
     locale: "fr_FR",
-    siteName: "Romaric Ouangni Portfolio",
-    images: [
-      {
-        url: "/photo-profil.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Romaric Ouangni",
-      },
-    ],
+    siteName: "Portfolio as a Service",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Romaric Ouangni – Ingénieur Logiciel Full Stack",
-    description: "5 ans d'expérience · Spring Boot · Laravel · React · DevOps",
-    images: ["/photo-profil.jpg"],
+    title: "Portfolio as a Service – Créez votre portfolio sans coder",
+    description: "Templates, profil, projets, contact. Pour tous les profils.",
   },
   robots: {
     index: true,
@@ -56,8 +58,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    // Ajoutez vos codes de vérification ici si nécessaire
+  icons: {
+    icon: "/assets/logo-pas.png",
+    apple: "/assets/logo-pas.png",
   },
 };
 
@@ -68,10 +71,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`${rajdhani.variable} ${spaceMono.variable}`} suppressHydrationWarning>
-      <body className="antialiased">
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+      <body className={`${rajdhani.className} antialiased`}>
+        <ToastProvider>
+          <ThemeProvider>
+            <AuthProvider>{children}</AuthProvider>
+          </ThemeProvider>
+        </ToastProvider>
       </body>
     </html>
   );

@@ -1,0 +1,15 @@
+{
+  "id": "classic",
+  "name": "Classic",
+  "version": "1.0",
+  "description": "Template style portfolio : Hero, Navigation, À propos, Projets (liste + détail), Contact, Footer. Design sombre avec dégradé amber/rouge.",
+  "thumbnail": null,
+  "designed": true,
+  "multiPage": true,
+  "pages": [
+    { "id": "index", "label": "Accueil" },
+    { "id": "about", "label": "À propos" },
+    { "id": "projects", "label": "Projets" },
+    { "id": "contact", "label": "Contact" }
+  ]
+}

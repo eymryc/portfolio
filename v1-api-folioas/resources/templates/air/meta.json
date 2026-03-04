@@ -1,0 +1,14 @@
+{
+    "id": "air",
+    "name": "Air",
+    "version": "1.0",
+    "description": "Template ultra-épuré fond blanc pur, typographie fine weight 300, max-width 720px centré, aucune couleur décorative. Espacement généreux, projets en liste hover-fade, formulaire underline-only.",
+    "designed": true,
+    "multiPage": true,
+    "pages": [
+      { "id": "index",    "label": "Home"    },
+      { "id": "about",    "label": "About"   },
+      { "id": "projects", "label": "Work"    },
+      { "id": "contact",  "label": "Contact" }
+    ]
+  }

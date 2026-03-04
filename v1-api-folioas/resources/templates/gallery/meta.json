@@ -1,0 +1,9 @@
+{
+    "id": "gallery",
+    "name": "Gallery",
+    "version": "1.0",
+    "description": "Template Gallery pour portfolio.",
+    "thumbnail": null,
+    "designed": false,
+    "multiPage": false
+}
